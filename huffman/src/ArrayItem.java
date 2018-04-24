@@ -1,22 +1,23 @@
 
 class ArrayItem {
-	private String element;
+	private char element;
 	private int count;
 	
 	public ArrayItem() {
-		element = "";
 		count = 0;
 	}
 	
-	void incriment() {
+	public void update(char c) {
 		count++;
+		element = c;
 	}
 	
-	String getElement() {
+	char getElelment() {
 		return element;
 	}
 	
 	int getCount() {
 		return count;
 	}
+	
 }

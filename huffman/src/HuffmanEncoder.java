@@ -1,8 +1,9 @@
 import java.io.*;
-public class Huff implements HuffmanCoding{
+public class HuffmanEncoder implements HuffmanCoding{
 	
 	public String getFrequencies(File inputFile) throws FileNotFoundException {
 		int size = 128;
+		String thing = "";
 		
 		ArrayItem table[] = new ArrayItem[size];
 		for (int i = 0; i < table.length; i++) {
@@ -16,17 +17,33 @@ public class Huff implements HuffmanCoding{
 			
 			while ((line = reader.readLine()) != null) {
 				for (int i = 0; i < line.length(); i++) {
-					
+					char letter = line.charAt(i);
+					int num = letter;
+					table[num].update(letter);
 				}
 			}
-			
+			int counter = 0;
+			for (int i = 0; i < table.length; i++) {
+				if (table[i].getCount() != 0) {
+					if (counter > 0) {
+						thing += "\n";
+					}
+					String element;
+					if (table[i].getElelment() == ' ') {
+						element = "Space";
+					}else {
+						element = table[i].getElelment()+"";
+					}
+					thing += element + " " + table[i].getCount();
+					counter++;
+				}
+			}
+			System.out.println(thing);
 			reader.close();
 		} catch (IOException e) {
-			
+			System.out.print("Something happened....");
 		}
-		
-		
-		return null;
+		return thing;
 	}
 
 	
