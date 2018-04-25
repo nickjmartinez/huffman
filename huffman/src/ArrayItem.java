@@ -3,13 +3,13 @@ class ArrayItem {
 	private char element;
 	private int count;
 	
-	public ArrayItem() {
-		count = 0;
+	public ArrayItem(char e) {
+		element = e;
+		count = 1;
 	}
 	
-	public void update(char c) {
+	void incriment() {
 		count++;
-		element = c;
 	}
 	
 	char getElelment() {

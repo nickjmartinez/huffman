@@ -6,16 +6,16 @@ public class Tester {
 	public static void main(String[] args) {
 		HuffmanEncoder tester = new HuffmanEncoder();
 		
-		File file = new File("files//text");
-		
+		File file = new File("files//hufftest");
+		HuffTree test = null;;
 		try {
-			String key = "! 1\nA 1\na 2\nb 1";
-			System.out.print(tester.getFrequencies(file).equals(key));
-		} catch (FileNotFoundException e) {
-			System.out.print("File not found");
+			test = tester.buildTree(file);
+			tester.getFrequencies(file);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
-
+		System.out.println();
 	}
 
 }
