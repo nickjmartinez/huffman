@@ -11,6 +11,7 @@ public class Tester {
 		try {
 			test = tester.buildTree(file);
 			tester.getFrequencies(file);
+			tester.traverseHuffmanTree(test);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,6 +1,8 @@
 import java.io.*;
+
 public class HuffmanEncoder implements HuffmanCoding{
 	private ArrayItem table[];
+	private String codeTable[];
 	private MinHeap heap;
 
 	public String getFrequencies(File inputFile) throws FileNotFoundException {
@@ -54,15 +56,49 @@ public class HuffmanEncoder implements HuffmanCoding{
 	}
 
 	public String traverseHuffmanTree(HuffTree huffTree) throws Exception {
-
+		
+		int count = 0;
+		
+		
+		HuffBaseNode curr = null;
+		HuffInternalNode currInt = null;
+		HuffLeafNode currLeaf = null;
+		
+		
+		String code = "";
+		
+		for(int i = 0; i < 2; i++) {
+			curr = heap.getRoot().root();
+			while(!curr.isLeaf()) {
+				currInt = (HuffInternalNode) curr;
+				
+				if (currInt.left() != null) {
+					curr = currInt.left();
+					code += "0";
+				}else {
+					curr = currInt.right();
+					code += "1";
+				}
+			}
+			currLeaf = (HuffLeafNode) curr;
+			int num = currLeaf.getElement();
+			codeTable[num] = code;
+			
+		}
+		
 		return null;
 	}
-
+	
+	void dig() {
+		
+	}
+	
 	private ArrayItem[] makeTable(File inputFile) throws FileNotFoundException{
 		int size = 128;
 
 		table = new ArrayItem[size];
-
+		codeTable = new String[size];
+		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 
