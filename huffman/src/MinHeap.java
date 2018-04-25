@@ -62,12 +62,27 @@ public class MinHeap {
 
 	HuffTree popMin() {
 		HuffTree min = heap[0];
-		n--;
+		
 		int curr = 0;
-
+		
+		HuffTree left;
+		HuffTree right;
+		
 		while(true) {
-			HuffTree left = heap[leftchild(curr)];
-			HuffTree right = heap[rightchild(curr)];
+			left = null;
+			right = null;
+			
+			int leftNum = leftchild(curr);
+			if (leftNum < 128) {
+				 left = heap[leftchild(curr)];
+			}
+			
+			int rightNum = rightchild(curr);
+			
+			if (rightNum < 128) {
+				right = heap[rightNum];
+			}
+			
 
 			if (right == null && left == null) {
 				heap[curr] = null;
@@ -88,7 +103,7 @@ public class MinHeap {
 				}
 			}
 		}
-
+		n--;
 		return min;
 	}
 

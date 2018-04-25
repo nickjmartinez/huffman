@@ -15,11 +15,9 @@ public class HuffmanEncoder implements HuffmanCoding{
 					thing += "\n";
 				}
 				String element;
-				if (table[i].getElelment() == ' ') {
-					element = "Space";
-				}else {
-					element = table[i].getElelment()+"";
-				}
+				
+				element = table[i].getElelment()+"";
+				
 				thing += element + " " + table[i].getCount();
 				counter++;
 			}
@@ -56,7 +54,7 @@ public class HuffmanEncoder implements HuffmanCoding{
 	}
 
 	public String traverseHuffmanTree(HuffTree huffTree) throws Exception {
-		
+		/*
 		int count = 0;
 		
 		
@@ -67,7 +65,7 @@ public class HuffmanEncoder implements HuffmanCoding{
 		
 		String code = "";
 		
-		for(int i = 0; i < 2; i++) {
+		for(int i = 0; i < 1; i++) {
 			curr = heap.getRoot().root();
 			while(!curr.isLeaf()) {
 				currInt = (HuffInternalNode) curr;
@@ -84,13 +82,22 @@ public class HuffmanEncoder implements HuffmanCoding{
 			int num = currLeaf.getElement();
 			codeTable[num] = code;
 			
-		}
+		}*/
+		
+		dig(huffTree.root(),"");
 		
 		return null;
 	}
 	
-	void dig() {
-		
+	void dig(HuffBaseNode node, String code) {
+		if (node.isLeaf()) {
+			HuffLeafNode leaf = (HuffLeafNode) node;
+			System.out.println(leaf.getElement() + " " + code);
+			return;
+		}
+		HuffInternalNode temp = (HuffInternalNode) node;
+		dig(temp.left(), code +"0");
+		dig(temp.right(), code + "1");
 	}
 	
 	private ArrayItem[] makeTable(File inputFile) throws FileNotFoundException{

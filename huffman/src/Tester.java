@@ -1,12 +1,11 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 
 public class Tester {
 
 	public static void main(String[] args) {
 		HuffmanEncoder tester = new HuffmanEncoder();
 		
-		File file = new File("files//hufftest");
+		File file = new File("files//illiad");
 		HuffTree test = null;;
 		try {
 			test = tester.buildTree(file);
