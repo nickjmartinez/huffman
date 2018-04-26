@@ -1,23 +1,23 @@
-
+//Class to be store in the frequency table, holds both the char and frequency
 class ArrayItem {
 	private char element;
-	private int count;
+	private int frequency;
 	
 	public ArrayItem(char e) {
 		element = e;
-		count = 1;
+		frequency = 1;
 	}
 	
 	void incriment() {
-		count++;
+		frequency++;
 	}
 	
 	char getElelment() {
 		return element;
 	}
 	
-	int getCount() {
-		return count;
+	int getFrequency() {
+		return frequency;
 	}
 	
 }

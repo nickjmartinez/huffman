@@ -1,4 +1,6 @@
-
+//Leaf Node for Huff Tree
+//Code in following block was used from OpenDSA
+/*------------------------------------------*/
 class HuffLeafNode implements HuffBaseNode{
 	private char element;
 	private int weight;
@@ -22,3 +24,4 @@ class HuffLeafNode implements HuffBaseNode{
 
 	
 }
+/*------------------------------------------*/

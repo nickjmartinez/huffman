@@ -1,4 +1,6 @@
-
+//Internal Node for Huff Tree
+//Code in following block was used from OpenDSA
+/*------------------------------------------*/
 public class HuffInternalNode implements HuffBaseNode{
 	private int weight;
 	private HuffBaseNode left;
@@ -27,3 +29,4 @@ public class HuffInternalNode implements HuffBaseNode{
 	}
 
 }
+/*------------------------------------------*/

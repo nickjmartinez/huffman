@@ -1,9 +1,9 @@
-
-
+//Huff tree class
 public class HuffTree implements Comparable{
 	private HuffBaseNode root;  
 
-
+	//Code in following block was used from OpenDSA
+	/*------------------------------------------*/
 	HuffTree(char el, int wt){ 
 		root = new HuffLeafNode(el, wt); 
 	}
@@ -23,4 +23,5 @@ public class HuffTree implements Comparable{
 		else if (root.weight() == that.weight()) return 0;
 		else return 1;
 	}
+	/*------------------------------------------*/
 }
